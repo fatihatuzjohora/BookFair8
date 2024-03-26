@@ -1,9 +1,12 @@
+import BookDitels from "../Main/BookDitels";
+import ReadBook from "../Main/ReadBook";
 
 
 const ListedBooks = () => {
     return (
         <div>
-            Listed Books
+            <BookDitels></BookDitels>
+            <ReadBook></ReadBook>
         </div>
     );
 };

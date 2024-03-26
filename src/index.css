@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fontPlay{
+    font-family: "Playfair Display"
+}
+.fontSans{
+    font-family: "Work Sans"
+}

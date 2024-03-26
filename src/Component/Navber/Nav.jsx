@@ -56,7 +56,7 @@ const Nav = () => {
           <ul className=" navber menu-horizontal p-6 text-xl font-semibold gap-8 ">{links}</ul>
         </div>
         <div className="gap-3 navbar-end">
-          <a className="btn text-xl font-semibold text-white  rounded-md bg-[#23BE0A]">Sign In</a>
+          <a className="btn text-xl font-semibold text-white rounded-md bg-[#23BE0A]">Sign In</a>
           <a className="btn text-xl font-semibold text-white  rounded-md bg-[#59C6D2]">Sign In</a>
         </div>
       </div>

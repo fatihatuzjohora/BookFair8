@@ -21,7 +21,7 @@ const Book = ({book}) => {
               <div> {tags[0]}</div>
               <div className="badge badge-secondary">{tags[1]}</div>
             </div>
-            <p>{bookName}</p>
+            <p className="">{bookName}</p>
             <p>By :{publisher} </p>
             <div className="card-actions justify-between">
               <div className="badge badge-outline">{category}</div>
