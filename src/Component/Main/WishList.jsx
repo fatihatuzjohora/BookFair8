@@ -1,4 +1,6 @@
-
+import { CiLocationOn } from "react-icons/ci";
+import { RiPagesLine } from "react-icons/ri";
+import { MdOutlinePeople } from "react-icons/md";
 
 const WishList = () => {
     return (
@@ -23,12 +25,12 @@ const WishList = () => {
           <div>Tag</div>
           <div className=" btn font-semibold text-xl px-4 py-2 rounded-3xl border border-none bg-[#23BE0A0D] text-[#23BE0A]">#Young Adult</div>
           <div className=" btn font-semibold text-xl px-4 py-2 rounded-3xl border border-none bg-[#23BE0A0D] text-[#23BE0A]">#Identity</div>
-          <div className="text-[#131313CC]">Year of Publishing: 1924</div>
+          <div className="text-[#131313CC] flex gap-2 items-center"><span><CiLocationOn /></span><span>Year of Publishing: 1924</span></div>
         </div>
 
         <div className="fontSans flex gap-10 text-[#13131399] font-semibold mt-5 mb-5">
-          <div>Publisher: Scribner</div>
-          <div>Page 192</div>
+        <div className="flex gap-2 items-center"><span><MdOutlinePeople /></span>Publisher: Scribner</div>
+          <div className="flex gap-2 items-center"><span><RiPagesLine /></span> Page 192</div>
         </div>
         <hr />
 

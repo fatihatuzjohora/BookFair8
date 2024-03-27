@@ -1,66 +1,92 @@
+import { parse } from "postcss";
+import { useLoaderData, useParams } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const BookDitels = () => {
+  const ditels= useLoaderData()
+ 
+  const {id} = useParams()
+  
+  const idNumber = parseInt(id);
+  console.log(idNumber, ditels);
+const singledata=ditels.find(item=> item.bookId
+  ===idNumber)
+console.log(singledata);
+
+const handleReadList = () => {
+  toast("Book Add To Read List,Book Add To Read List, you have Already Read This Book")
+}
+
+const handleWishList = () => {
+  toast("you have Already Read This Book, Book Add To Wish List, you have Already Read This Book")
+}
+
+
+
+const {bookName,image,category,rating,tags,publisher,bookId,yearOfPublishing, totalPages,review}=singledata
+
   return (
-    <div className="  flex flex-col md:flex-row justify-center items-center  gap-10 shadow-lg md:p-14 mt-10">
-      <div className="max-w-2xl mx-auto rounded-xl bg-[#1313130D]">
-        {/* <img className="rounded-xl bg-[#1313130D]"
-          src={}
+    <div className="grid grid-cols-1 md:grid-cols-2 items-center  gap-10 shadow-xl md:p-10 border rounded-lg mt-10">
+      <div className=" w-full mx-auto rounded-xl bg-[#1313130D]">
+        <img className=" w-full shadow-lg rounded-xl bg-[#1313130D]"
+          src={image}
           alt="Album"
-        /> */}
+        />
       </div>
-      <div className="max-w-3xl">
+      <div className="">
         <h2 className=" text-5xl font-extrabold fontPlay">
-          The Catcher in the Rye
+          {bookName}
         </h2>
         <h2 className="fontSans text-xl mt-5 mb-5 font-semibold">
-          By : Awlad Hossain
+          By : {publisher}
         </h2>
         <hr />
-        <h2 className="fontSans font-semibold text-xl mt-5 mb-5">Fiction</h2>
+        <h2 className="fontSans font-semibold text-xl mt-5 mb-5">{category}</h2>
         <hr />
         <p className="fontSans font-semibold text-xl mt-5  text-[#131313B3]">
-          <span className="text-black ">Review :</span> Sit amet consectetur.
-          Interdum porta pulvinar non sit aliquam. Aenean pulvinar blandit vel
-          non enim elementum penatibus pellentesque ac. Nec accumsan euismod
-          nulla adipiscing lectus. Morbi elementum a auctor erat diam tellus.
-          Fermentum faucibus nulla enim ornare. Id neque neque pretium enim
-          platea urna non dictum. Faucibus dignissim ridiculus nibh tristique
-          massa non.
+          <span className="text-black ">Review :</span> {review}
         </p>
-        <div className="flex gap-10 fontSans font-semibold text-xl mt-5 mb-5">
-          <div>Tag</div>
-          <div>#Young Adult</div>
-          <div>#Identity</div>
+        <div className="flex items-center gap-10 fontSans font-semibold text-xl mt-5 mb-5">
+          <div>Tag:</div>
+          <div className=" btn font-semibold text-xl px-4 py-2 rounded-3xl border border-none bg-[#23BE0A0D] text-[#23BE0A]">#{tags[0]}</div>
+          <div className=" btn font-semibold text-xl px-4 py-2 rounded-3xl border border-none bg-[#23BE0A0D] text-[#23BE0A]">#{tags[1]}</div>
         </div>
         <hr />
 
-        <div className="fontSans mt-5">
-          <div className="mt-3 flex">
+        <div className="fontSans mt-5 max-w-2xl">
+          <div className="mt-3 grid grid-cols-2 ">
             
-            <div className="text-[#131313B3] font-semibold">Number of Pages:</div>
-             <div className="text-black font-semibold text-xl">281</div>
+            <div className="text-[#131313B3] text-xl font-semibold">Number of Pages:</div>
+             <div className="text-black font-semibold text-xl">{totalPages}</div>
           </div>
 
-          <div className="mt-3 flex">           
-            <div className="text-[#131313B3] font-semibold">Publisher:</div> 
-            <div className="text-black font-semibold text-xl">J.B Lippincott & Co.</div>
+          <div className="mt-3 grid grid-cols-2">           
+            <div className="text-[#131313B3] text-xl font-semibold">Publisher:</div> 
+            <div className="text-black font-semibold text-xl">{publisher}</div>
             </div>
 
-            <div className="mt-3 flex">
-            <div className="text-[#131313B3] font-semibold">Year of Publishing:</div>
-             <div className="text-black font-semibold text-xl">1980</div>
+            <div className="mt-3 grid grid-cols-2">
+            <div className="text-[#131313B3] text-xl font-semibold">Year of Publishing:</div>
+             <div className="text-black font-semibold text-xl">{yearOfPublishing}</div>
           </div>
 
-          <div className="mt-3 flex">
-            <div className="text-[#131313B3] font-semibold">Rating:</div>
-             <div className="text-black font-semibold text-xl">4.8</div>
+          <div className="mt-3 grid grid-cols-2">
+            <div className="text-[#131313B3] text-xl font-semibold">Rating:</div>
+             <div className="text-black font-semibold text-xl">{rating}</div>
           </div>
         </div>
 
-        <div className="card-actions fontSans justify-start mt-10 gap-5">
-          <button className=" btn px-8 py-2 rounded-lg border border-[#23BE0A] text-xl font-semibold"> Read </button>
-          <button className="btn text-white font-semibold text-xl bg-[#50B1C9]">Wishlist</button>
+ 
+
+
+
+        <div  className=" card-actions fontSans justify-start mt-10 gap-5">
+          <button onClick={() =>handleReadList()} className=" btn px-8 py-2 rounded-lg border border-[#23BE0A] text-xl font-semibold"> Read </button>
+          <button onClick={() =>handleWishList()} className="btn text-white font-semibold text-xl bg-[#50B1C9]">Wishlist</button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -13,6 +13,9 @@ import About from './Component/Navber/About';
 import Contact from './Component/Navber/Contact';
 import Error from './Component/ErrorPage/Error';
 import BookDitels from './Component/Main/BookDitels';
+import ReadBook from './Component/Main/ReadBook';
+import WishList from './Component/Main/WishList';
+
 
 
 const router = createBrowserRouter([
@@ -32,6 +35,16 @@ const router = createBrowserRouter([
       {
         path: "/PageToRead",
         element:<PagesToRead></PagesToRead>,
+        children:[
+          {
+            index:true,
+            element:<ReadBook></ReadBook>,
+          },
+          {
+            path:'wish',
+            element:<WishList></WishList>,
+          },
+        ],
       },
       {
         path: "/Contact",
@@ -42,15 +55,10 @@ const router = createBrowserRouter([
         element:<About></About>,
       },
       {
-        path:'/book/:id',
-        element:<BookDitels/>
-      }
-    
-
-      // {
-      //   path: "contacts/:contactId",
-      //   element: <Contact />,
-      // },
+        path:'book/:id',
+        element:<BookDitels></BookDitels>,
+       loader:()=> fetch ('/Data.json')
+      },
 
     ],
   },

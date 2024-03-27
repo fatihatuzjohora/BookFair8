@@ -10,8 +10,8 @@ const Bannar = () => {
             <button className="btn text-white  md:text-2xl font-semibold text-center items-center bg-[#23BE0A]">View The List</button>
           
         </div>
-        <div>
-            <img src="https://i.ibb.co/rmcxJtT/download-6.jpg" alt="" />
+        <div className="rounded-lg">
+            <img className="rounded-lg shadow-xl" src="https://i.ibb.co/9twqB6q/25856774.jpg" alt="" />
         </div>
       </div>
     );
