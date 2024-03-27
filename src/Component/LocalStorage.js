@@ -1,27 +1,4 @@
 
-     {/* const handleClick = (item) => {
-    const isExit = ditels.find((pd) => pd.bookId === item.bookId);
-    if (isExit) {
-      toast(" read");
-    } else {
-      const newArray = [...ditels, item];
-
-      setwish(newArray);
-    }
-  };
-  const handlePreparing = (item) => {
-    const newArray = [...preparing, item];
-
-    setPreparing(newArray);
-    const newwish = cook.filter((pd) => pd.bookId !== item.bookId);
-    setwith(newwish);
-
-
-onClick={() => handleClick(item)}
-
-
-  }; */}
-
   const getStoredReadList=()=>{
     const storedReadBook=localStorage.getItem('readBook');
     if(storedReadBook){

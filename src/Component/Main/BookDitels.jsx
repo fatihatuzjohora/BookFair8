@@ -6,6 +6,9 @@ import { saveReadBookList } from "../LocalStorage";
 
 const BookDitels = () => {
   const ditels= useLoaderData()
+
+
+  
  
   const {id} = useParams()
   
@@ -16,7 +19,7 @@ const singledata=ditels.find(item=> item.bookId
 
 
 const handleReadList = () => {
-  saveReadBookList(id)
+  saveReadBookList(idNumber)
   toast("Book Add To Read List,Book Add To Read List, you have Already Read This Book")
 }
 

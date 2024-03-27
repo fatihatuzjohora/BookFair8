@@ -39,6 +39,7 @@ const router = createBrowserRouter([
           {
             index:true,
             element:<ReadBook></ReadBook>,
+            loader:()=>fetch('Data.json'),
           },
           {
             path:'wish',
