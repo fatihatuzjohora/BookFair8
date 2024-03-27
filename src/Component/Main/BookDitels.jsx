@@ -38,7 +38,7 @@ const {bookName,image,category,rating,tags,publisher,bookId,yearOfPublishing, to
         />
       </div>
       <div className="">
-        <h2 className=" text-5xl font-extrabold fontPlay">
+        <h2 className=" text-5xl font-extrabold fontPlay link link-hover">
           {bookName}
         </h2>
         <h2 className="fontSans text-xl mt-5 mb-5 font-semibold">

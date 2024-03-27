@@ -25,7 +25,7 @@ const About = () => {
           A book fair is an event where publishers, authors, and book lovers
           gather to showcase and celebrate literature. These fairs can vary in
           size, from local community events to large international gatherings.
-          Here are some key aspects of book fairs:
+          Here are some key aspects of book fairs :
         </p>
         <li style={liStyle} className="mt-5">
           <span className="text-2xl text-[#131313CC]">
