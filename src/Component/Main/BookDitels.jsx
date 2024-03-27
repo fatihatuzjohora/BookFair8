@@ -6,8 +6,6 @@ import { saveReadBookList } from "../LocalStorage";
 
 const BookDitels = () => {
   const ditels= useLoaderData()
-
-
   
  
   const {id} = useParams()

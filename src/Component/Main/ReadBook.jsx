@@ -2,17 +2,20 @@ import { CiLocationOn } from "react-icons/ci";
 import { RiPagesLine } from "react-icons/ri";
 import { MdOutlinePeople } from "react-icons/md";
 import { useLoaderData } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getStoredReadList } from "../LocalStorage";
 
 const ReadBook = () => {
 
   const readBooks= useLoaderData();
+
+  const [readingBooks,setReadingBooks]=useState([]);
+
   useEffect(()=>{
     const sotredBookIds=getStoredReadList();
     if(readBooks.length>0){
       const booksRead=readBooks.filter(book=>sotredBookIds.includes(book.id))
-      console.log(booksRead);
+      setReadingBooks(booksRead)
     }
   },[])
 
@@ -21,6 +24,7 @@ const ReadBook = () => {
        
 
         <div>
+          <div>books: {readingBooks.length}</div>
             <div className="mt-10">
                 <h1 className="text-5xl font-extrabold text-center rounded-lg p-4 bg-[#1313130D]">Books</h1>
             </div>
