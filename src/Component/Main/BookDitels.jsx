@@ -2,6 +2,7 @@ import { parse } from "postcss";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { saveReadBookList } from "../LocalStorage";
 
 const BookDitels = () => {
   const ditels= useLoaderData()
@@ -9,12 +10,13 @@ const BookDitels = () => {
   const {id} = useParams()
   
   const idNumber = parseInt(id);
-  console.log(idNumber, ditels);
+  
 const singledata=ditels.find(item=> item.bookId
   ===idNumber)
-console.log(singledata);
+
 
 const handleReadList = () => {
+  saveReadBookList(id)
   toast("Book Add To Read List,Book Add To Read List, you have Already Read This Book")
 }
 
