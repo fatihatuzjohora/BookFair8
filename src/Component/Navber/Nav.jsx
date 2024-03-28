@@ -60,7 +60,7 @@ const Nav = () => {
         <div className="gap-3 navbar-end">
           <a className="btn text-xl font-semibold text-white rounded-md bg-[#23BE0A]">
             Sign In
-          </a>
+          </a> 
           <a className="btn text-xl font-semibold text-white  rounded-md bg-[#59C6D2]">
             Sign In
           </a>
