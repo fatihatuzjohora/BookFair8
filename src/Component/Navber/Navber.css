@@ -5,3 +5,19 @@ padding: 6px;
 border-radius: 5px;
 color: #23BE0A;
 }
+
+.active-tabs::before{
+    content:'';
+    display: block;
+    position: absolute;
+    top:-5px;
+    left:50%;
+    transform: translateX(-50%);
+    width: calc(100%+2px);
+    height: 5px;
+    background: #354bdb;
+}
+.active-tabs{
+    background: white;
+    border-bottom: 1px solid transparent;
+}
