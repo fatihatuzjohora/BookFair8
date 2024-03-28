@@ -6,19 +6,9 @@ import { useEffect, useState } from "react";
 import { getStoredWishList } from "../LocalStorage";
 
 const WishList = () => {
-  const wishBooks = useLoaderData();
-  const [wishingBook, setWishingBooks] = useState([]);
+  
 
-  useEffect(() => {
-    const sotredWishIds = getStoredWishList();
-    if (wishBooks.length > 0) {
-      const booksWish = wishBooks.filter((wish) =>
-        sotredWishIds.inclides(wish.id)
-      );
-      console.log(booksWish);
-      setWishingBooks(booksWish);
-    }
-  }, []);
+
 
   return (
     <div>

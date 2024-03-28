@@ -1,43 +1,30 @@
 import { CiLocationOn } from "react-icons/ci";
 import { RiPagesLine } from "react-icons/ri";
 import { MdOutlinePeople } from "react-icons/md";
-import { useLoaderData } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { getStoredReadList } from "../LocalStorage";
 
-const ReadBook = () => {
-  const readBooks = useLoaderData();
-  const [readingBooks, setReadingBooks] = useState([]);
 
-  useEffect(() => {
-    const sotredBookIds = getStoredReadList();
-    if (readBooks.length > 0) {
-      const booksRead = readBooks.filter((book) =>
-        sotredBookIds.includes(book.id)
-      );
-      console.log(booksRead);
-      setReadingBooks(booksRead);
-    }
-  }, []);
+const ReadBook = ({book}) => {
+ // console.log(book);
+
+ const {bookName,
+  image,
+  category,
+  rating,
+  tags,
+  publisher,
+  bookId,
+  yearOfPublishing,
+  totalPages,
+  review,}=book;
+
 
   return (
     <div>
       <div>
-        <div>
-          <p>read: {readingBooks.length}</p>
-          {readingBooks.map((book) => (
-            <li key={readingBooks.id}>
-              <li>book Nsme {book.bookName}</li>
-            </li>
-          ))}
-        </div>
 
         <div className="  flex flex-col md:flex-row justify-center items-center  gap-10 shadow-lg md:p-5 border rounded-2xl mt-10">
           <div className="max-w-2xl mx-auto rounded-xl bg-[#1313130D]">
-            {/* <img className="rounded-xl bg-[#1313130D]"
-        src={image}
-        alt="Album"
-      /> */}
+          <img src={image} alt="" />
           </div>
           <div className="max-w-3xl">
             <h2 className=" text-5xl font-extrabold fontPlay">
@@ -76,7 +63,7 @@ const ReadBook = () => {
               <div className="flex gap-2 items-center">
                 <span>
                   <RiPagesLine />
-                </span>{" "}
+                </span>
                 Page 192
               </div>
             </div>
@@ -84,15 +71,13 @@ const ReadBook = () => {
 
             <div className="card-actions fontSans justify-start mt-10 gap-5">
               <button className="btn px-6 py-2 rounded-3xl border bg-[#328EFF26] text-[#328EFF] text-xl font-semibold">
-                {" "}
-                Read{" "}
+                Read
               </button>
               <button className="btn px-6 py-2 rounded-3xl border bg-[#FFAC3326] text-[#FFAC33] text-xl font-semibold">
                 Wishlist
               </button>
               <button className=" btn px-6 py-2 rounded-3xl border border-[#23BE0A] bg-[#23BE0A] text-white text-xl font-semibold">
-                {" "}
-                View Details{" "}
+                View Details
               </button>
             </div>
           </div>

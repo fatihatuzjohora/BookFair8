@@ -1,14 +1,28 @@
-import { Link, Outlet } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 import "./Navber.css";
-// import { useState } from "react";
+import { useEffect, useState } from "react";
+import ReadBook from "../Main/ReadBook";
+import WishList from "../Main/WishList";
+import { getStoredReadList } from "../LocalStorage";
+
 
 const ListedBooks = () => {
-  // const [togglestate, setToggleState]=useState(1);
-  // const toggleTab=(index)=>{
-  //   setToggleState(index);
-  // }
+  const [allDataAdd, setAllDataAdd ]=useState([])
+  
+  const [tabIndex, setTabIndex] = useState(0);
+  const alldata=useLoaderData()
 
+  useEffect(()=>{
+    const readlist =getStoredReadList();
+  const filterData= alldata.filter(data=>readlist.includes(data.bookId))
+  //console.log(filterData); 
+  setAllDataAdd(filterData)
+  
+  },[])
+console.log(allDataAdd);
   return (
     <div className="fontPlay">
       <div className="mt-10">
@@ -31,46 +45,27 @@ const ListedBooks = () => {
         </select>
         </button>
       </div> */}
-
-      {/* <div>
-        <div role="tablist" className={togglestate===1? 'tabs active-tabs':'tabs'}>
-        <div onClick={()=>toggleTab(1)} role="tab" className="tabs tab text-[#131313CC] font-semibold">
-          Read Books
+<Tabs className='mt-10 text-2xl font-semibold' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        <TabList>
+          <Tab>Read Books</Tab>
+          <Tab>Wishlist Books</Tab>
+        </TabList>
+        <div className="mt-8">
+          <TabPanel>
+            <div>
+            {
+              allDataAdd.map(book=> <ReadBook key={book.id} book={book}></ReadBook>)
+            }
+            </div>
+          </TabPanel>
+          <TabPanel>
+           <div>
+           <WishList></WishList>
+           </div>
+          </TabPanel>
         </div>
+      </Tabs>
 
-        <div
-        onClick={()=>toggleTab(2)}
-          role="tab"
-          className={togglestate===2? 'tabs active-tabs':'tabs'} >
-          Wishlist Books
-        </div>
-      </div>
-      </div> */}
-
-      <div
-        role="tablist"
-        className="bloc-tabs tabs tabs-lifted tabs-lg max-w-md mt-10"
-      >
-        <Link
-          to=""
-          role="tab"
-          className="tabs tab text-[#131313CC] font-semibold"
-        >
-          Read Books
-        </Link>
-
-        <Link
-          to="wish"
-          role="tab"
-          className="tabs tab tab-active text-[#131313CC] font-semibold"
-        >
-          Wishlist Books
-        </Link>
-      </div>
-
-      {/* <div>books: {readingBooks.length}</div>  */}
-
-      <Outlet></Outlet>
     </div>
   );
 };

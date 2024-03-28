@@ -2,7 +2,12 @@ import { parse } from "postcss";
 import { useLoaderData, useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { saveReadBookList } from "../LocalStorage";
+import {
+  saveWishBookList,
+  saveReadBookList,
+  getStoredReadList,
+  getStoredWishList,
+} from "../LocalStorage";
 
 const BookDitels = () => {
   const ditels = useLoaderData();
@@ -10,23 +15,31 @@ const BookDitels = () => {
   const { id } = useParams();
 
   const idNumber = parseInt(id);
+  const gateBook = getStoredReadList();
+  const gateWish = getStoredWishList();
 
   const singledata = ditels.find((item) => item.bookId === idNumber);
 
   const handleReadList = () => {
-   const readBookAdd= saveReadBookList(idNumber);
-   if (readBookAdd){
-    toast.success('Book Add To Read List');
-   }
-   else{
-    toast.error('you have Already Read This Book')
-   }
+    if (!getStoredReadList().includes(idNumber)) {
+      saveReadBookList(parseInt(bookId));
+      toast.success("Book has been read");
+    } else {
+      toast.error("Book has already been read");
+    }
   };
 
   const handleWishList = () => {
-    toast(
-      "you have Already Read This Book, Book Add To Wish List, you have Already Read This Book"
-    );
+    if (!getStoredReadList().includes(idNumber)) {
+      if (!getStoredWishList().includes(idNumber)) {
+        saveWishBookList(idNumber);
+        toast.success("Book has been added to wishlist");
+      } else {
+        toast.error("Book has already been added to wishlist");
+      }
+    } else {
+      toast.error("Book has already been read or added to wishlist");
+    }
   };
 
   const {
@@ -112,8 +125,7 @@ const BookDitels = () => {
             onClick={() => handleReadList()}
             className=" btn px-8 py-2 rounded-lg border border-[#23BE0A] text-xl font-semibold"
           >
-            {" "}
-            Read{" "}
+            Read
           </button>
           <button
             onClick={() => handleWishList()}
