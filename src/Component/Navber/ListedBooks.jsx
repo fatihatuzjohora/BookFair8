@@ -1,15 +1,13 @@
 import { Link, Outlet } from "react-router-dom";
 
-
-
-import './Navber.css';
+import "./Navber.css";
 // import { useState } from "react";
 
 const ListedBooks = () => {
-// const [togglestate, setToggleState]=useState(1);
-// const toggleTab=(index)=>{
-//   setToggleState(index);
-// }
+  // const [togglestate, setToggleState]=useState(1);
+  // const toggleTab=(index)=>{
+  //   setToggleState(index);
+  // }
 
   return (
     <div className="fontPlay">
@@ -34,7 +32,6 @@ const ListedBooks = () => {
         </button>
       </div> */}
 
-
       {/* <div>
         <div role="tablist" className={togglestate===1? 'tabs active-tabs':'tabs'}>
         <div onClick={()=>toggleTab(1)} role="tab" className="tabs tab text-[#131313CC] font-semibold">
@@ -50,19 +47,27 @@ const ListedBooks = () => {
       </div>
       </div> */}
 
-      <div role="tablist" className="bloc-tabs tabs tabs-lifted tabs-lg max-w-md mt-10">
-        <Link to="" role="tab" className="tabs tab text-[#131313CC] font-semibold">
+      <div
+        role="tablist"
+        className="bloc-tabs tabs tabs-lifted tabs-lg max-w-md mt-10"
+      >
+        <Link
+          to=""
+          role="tab"
+          className="tabs tab text-[#131313CC] font-semibold"
+        >
           Read Books
         </Link>
 
         <Link
           to="wish"
           role="tab"
-          className="tabs tab tab-active text-[#131313CC] font-semibold">
+          className="tabs tab tab-active text-[#131313CC] font-semibold"
+        >
           Wishlist Books
         </Link>
       </div>
-      
+
       {/* <div>books: {readingBooks.length}</div>  */}
 
       <Outlet></Outlet>

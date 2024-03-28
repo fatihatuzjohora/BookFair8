@@ -13,7 +13,6 @@ const Contact = () => {
 
       <div className="hero mt-20 p-4 rounded-2xl fontPlay md:p-20 bg-base-200">
         <div className="hero-content grid-cols-1 grid md:grid-cols-2 gap-10">
-
           <div className="text-center lg:text-left">
             <h1 className="text-5xl text-center font-bold mb-5">Login now</h1>
             <p className="py-6 text-xl font-semibold text-center">
@@ -22,13 +21,14 @@ const Contact = () => {
               et a id nisi.
             </p>
           </div>
-          
-          <div className="card shrink-0 w-full max-w-md shadow-lg bg-base-100">
 
+          <div className="card shrink-0 w-full max-w-md shadow-lg bg-base-100">
             <form className="card-body">
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-xl font-semibold">Email</span>
+                  <span className="label-text text-xl font-semibold">
+                    Email
+                  </span>
                 </label>
                 <input
                   type="email"
@@ -39,7 +39,9 @@ const Contact = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text text-xl font-semibold">Password</span>
+                  <span className="label-text text-xl font-semibold">
+                    Password
+                  </span>
                 </label>
                 <input
                   type="password"
@@ -48,13 +50,18 @@ const Contact = () => {
                   required
                 />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover text-xl font-semibold">
+                  <a
+                    href="#"
+                    className="label-text-alt link link-hover text-xl font-semibold"
+                  >
                     Forgot password?
                   </a>
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary text-xl font-semibold">Login</button>
+                <button className="btn btn-primary text-xl font-semibold">
+                  Login
+                </button>
               </div>
             </form>
           </div>
