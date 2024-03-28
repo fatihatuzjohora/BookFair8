@@ -32,15 +32,17 @@ const PagesToRead = () => {
       },[]);  
      // console.log(isloader);
     return (
-        <BarChart
-        width={500}
-        height={300}
+      <div className='flex justify-center mt-20 items-center'>
+          <BarChart
+        width={900}
+        height={500}
         data={allDataAdd}
         margin={{
           top: 20,
           right: 30,
           left: 20,
           bottom: 5,
+         
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
@@ -52,6 +54,7 @@ const PagesToRead = () => {
           ))}
         </Bar>
       </BarChart>
+      </div>
           
 
 )

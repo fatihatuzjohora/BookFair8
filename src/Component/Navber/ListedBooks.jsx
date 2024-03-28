@@ -6,23 +6,48 @@ import "./Navber.css";
 import { useEffect, useState } from "react";
 import ReadBook from "../Main/ReadBook";
 import WishList from "../Main/WishList";
-import { getStoredReadList } from "../LocalStorage";
+import { getStoredReadList, getStoredWishList } from "../LocalStorage";
 
 
 const ListedBooks = () => {
-  const [allDataAdd, setAllDataAdd ]=useState([])
+
+  const [categories, setCatagoris]=useState('');
+  const [allDataAdd, setAllDataAdd ]=useState([]);
+  const [allwishAdd, setAllwishAdd]=useState([]);
   
   const [tabIndex, setTabIndex] = useState(0);
-  const alldata=useLoaderData()
+  const alldata=useLoaderData();
+
+  
+  const catagori=(e)=>{
+    setCatagoris(e.target.value)
+  }
+
+  const filteredJobs = allDataAdd.filter((data) =>
+  categories === "" || data.category ===categories
+  
+);
+
+const filteredWish = allwishAdd.filter((data) =>
+  categories === "" || data.category ===categories
+  
+);
 
   useEffect(()=>{
     const readlist =getStoredReadList();
   const filterData= alldata.filter(data=>readlist.includes(data.bookId))
   //console.log(filterData); 
   setAllDataAdd(filterData)
-  
   },[])
-console.log(allDataAdd);
+
+  useEffect(()=>{
+    const readlist =getStoredWishList();
+  const filterData= alldata.filter(data=>readlist.includes(data.bookId))
+  //console.log(filterData); 
+  setAllwishAdd(filterData)
+  },[])
+console.log(categories);
+
   return (
     <div className="fontPlay">
       <div className="mt-10">
@@ -31,20 +56,21 @@ console.log(allDataAdd);
         </h1>
       </div>
 
-      {/* <div className="mt-10 items-center text-center">
+      <div className="mt-10 items-center text-center">
         <button>
-        <select className="select rounded-xl border border-none bg-[#23BE0A] text-white text-3xl font-semibold">
+        <select onChange={catagori} className="select rounded-xl border border-none bg-[#23BE0A] text-white text-3xl font-semibold">
           <option disabled hidden selected>
           Sort By
           </option>
-          <option className="text-xl text-center">Marge</option>
-          <option className="text-xl text-center">Bart</option>
-          <option className="text-xl text-center">Lisa</option>
-          <option className="text-xl text-center">Homer</option>
-          <option className="text-xl text-center">Maggie</option>
+          <option value={''}  className="text-xl text-center ">All</option>
+          <option value={'Fiction'} className="text-xl text-center">Fiction</option>
+          <option value={'Classic'} className="text-xl text-center">Classic</option>
+          
         </select>
         </button>
-      </div> */}
+      </div>
+
+
 <Tabs className='mt-10 text-2xl font-semibold' selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
         <TabList>
           <Tab>Read Books</Tab>
@@ -54,13 +80,15 @@ console.log(allDataAdd);
           <TabPanel>
             <div>
             {
-              allDataAdd.map(book=> <ReadBook key={book.id} book={book}></ReadBook>)
+              filteredJobs.map(book=> <ReadBook key={book.id} book={book}></ReadBook>)
             }
             </div>
           </TabPanel>
           <TabPanel>
            <div>
-           <WishList></WishList>
+           {
+              filteredWish.map(book=> <WishList key={book.id} book={book}></WishList>)
+            }
            </div>
           </TabPanel>
         </div>
