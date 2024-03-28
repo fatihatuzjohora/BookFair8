@@ -26,15 +26,15 @@ const ReadBook = ({book}) => {
 
   return (
     <div>
-      <div className="  flex flex-col md:flex-row justify-center items-center  gap-10 shadow-lg md:p-5 border rounded-2xl mt-10">
-        <div className="max-w-2xl mx-auto rounded-xl bg-[#1313130D]">
+      <div className="  flex flex-col md:flex-row justify-center items-center  md:gap-10 shadow-lg md:p-5 border rounded-2xl mt-10">
+        <div className="md:max-w-2xl mx-auto rounded-xl bg-[#1313130D]">
           <img className="rounded-xl bg-[#1313130D]"
           src={image}
           alt="Album"
         />
         </div>
-        <div className="max-w-3xl">
-          <h2 className=" text-5xl font-extrabold fontPlay link link-hover">
+        <div className="md:max-w-3xl">
+          <h2 className=" md:text-5xl font-extrabold fontPlay link link-hover">
           {bookName}
           </h2>
           <h2 className="fontSans text-xl mt-5 mb-5 font-semibold">
@@ -42,7 +42,7 @@ const ReadBook = ({book}) => {
           </h2>
 
           <h2 className="fontSans font-semibold text-xl mt-5 mb-5">{category}</h2>
-          <div className="flex items-center gap-5 fontSans font-semibold text-xl mt-5 mb-5">
+          <div className="flex flex-col md:flex-row items-center gap-5 fontSans font-semibold text-xl mt-5 mb-5">
             <div>Tag</div>
             <div className=" btn font-semibold text-xl px-4 py-2 rounded-3xl border border-none bg-[#23BE0A0D] text-[#23BE0A]">
               #{tags[0]}
@@ -58,7 +58,7 @@ const ReadBook = ({book}) => {
             </div>
           </div>
 
-          <div className="fontSans flex gap-10 text-[#13131399] font-semibold mt-5 mb-5">
+          <div className="fontSans flex flex-col md:flex-row gap-10 text-[#13131399] font-semibold mt-5 mb-5">
             <div className="flex gap-2 items-center">
               <span>
                 <MdOutlinePeople />
@@ -74,7 +74,7 @@ const ReadBook = ({book}) => {
           </div>
           <hr />
 
-          <div className="card-actions fontSans justify-start mt-10 gap-5">
+          <div className="card-actions flex-col md:flex-row fontSans justify-start mt-10 gap-5">
             <button className="btn px-6 py-2 rounded-3xl border bg-[#328EFF26] text-[#328EFF] text-xl font-semibold">
               
               Read
