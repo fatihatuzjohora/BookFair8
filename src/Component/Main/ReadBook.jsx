@@ -23,17 +23,14 @@ const ReadBook = () => {
   return (
     <div>
       <div>
-        {/* <div className="mt-10">
-          <h1 className="text-5xl font-extrabold text-center rounded-lg p-4 bg-[#1313130D]">
-            Books
-          </h1>
+        <div>
+          <p>read: {readingBooks.length}</p>
+          {readingBooks.map((book) => (
+            <li key={readingBooks.id}>
+              <li>book Nsme {book.bookName}</li>
+            </li>
+          ))}
         </div>
-
-        <div className="mt-10 items-center text-center">
-          <button className=" px-10 py-4 rounded-xl border border-[#23BE0A] bg-[#23BE0A] text-white text-2xl font-semibold">
-            Sort By
-          </button>
-        </div> */}
 
         <div className="  flex flex-col md:flex-row justify-center items-center  gap-10 shadow-lg md:p-5 border rounded-2xl mt-10">
           <div className="max-w-2xl mx-auto rounded-xl bg-[#1313130D]">

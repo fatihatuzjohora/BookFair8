@@ -14,10 +14,13 @@ const BookDitels = () => {
   const singledata = ditels.find((item) => item.bookId === idNumber);
 
   const handleReadList = () => {
-    saveReadBookList(idNumber);
-    toast(
-      "Book Add To Read List,Book Add To Read List, you have Already Read This Book"
-    );
+   const readBookAdd= saveReadBookList(idNumber);
+   if (readBookAdd){
+    toast.success('Book Add To Read List');
+   }
+   else{
+    toast.error('you have Already Read This Book')
+   }
   };
 
   const handleWishList = () => {
