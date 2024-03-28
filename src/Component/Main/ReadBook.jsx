@@ -7,7 +7,6 @@ import { getStoredReadList } from "../LocalStorage";
 
 const ReadBook = () => {
   const readBooks = useLoaderData();
-
   const [readingBooks, setReadingBooks] = useState([]);
 
   useEffect(() => {
@@ -18,8 +17,7 @@ const ReadBook = () => {
       );
       console.log(booksRead );
       setReadingBooks(booksRead);
-    }
-  }, []);
+    }},[]);
 
   return (
     <div>
@@ -39,7 +37,7 @@ const ReadBook = () => {
         <div className="  flex flex-col md:flex-row justify-center items-center  gap-10 shadow-lg md:p-5 border rounded-2xl mt-10">
           <div className="max-w-2xl mx-auto rounded-xl bg-[#1313130D]">
             {/* <img className="rounded-xl bg-[#1313130D]"
-        src={}
+        src={image}
         alt="Album"
       /> */}
           </div>

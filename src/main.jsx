@@ -31,10 +31,6 @@ const router = createBrowserRouter([
       {
         path: "/listed",
         element:<ListedBooks></ListedBooks>,
-      },
-      {
-        path: "/PageToRead",
-        element:<PagesToRead></PagesToRead>,
         children:[
           {
             index:true,
@@ -46,6 +42,11 @@ const router = createBrowserRouter([
             element:<WishList></WishList>,
           },
         ],
+      },
+      {
+        path: "/PageToRead",
+        element:<PagesToRead></PagesToRead>,
+        
       },
       {
         path: "/Contact",

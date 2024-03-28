@@ -1,14 +1,29 @@
 import { CiLocationOn } from "react-icons/ci";
 import { RiPagesLine } from "react-icons/ri";
 import { MdOutlinePeople } from "react-icons/md";
+import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getStoredWishList } from "../LocalStorage";
 
 const WishList = () => {
+  const wishBooks=useLoaderData();
+  const [wishingBook, setWishingBooks]=useState([]);
+
+  useEffect(()=>{
+    const sotredWishIds=getStoredWishList();
+    if(wishBooks.length >0){
+      const booksWish=wishBooks.filter((wish)=> sotredWishIds.inclides(wish.id)
+      );
+      console.log(booksWish);
+      setWishingBooks(booksWish)
+    }},[]);
+    
     return (
         <div>
             <div className="  flex flex-col md:flex-row justify-center items-center  gap-10 shadow-lg md:p-5 border rounded-2xl mt-10">
       <div className="max-w-2xl mx-auto rounded-xl bg-[#1313130D]">
         {/* <img className="rounded-xl bg-[#1313130D]"
-          src={}
+          src={image}
           alt="Album"
         /> */}
       </div>

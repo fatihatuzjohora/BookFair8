@@ -15,4 +15,23 @@ return JSON.parse(storedReadBook)
         localStorage.setItem('readBook', JSON.stringify(storedReadBooks))
     }
   }
-  export{getStoredReadList,saveReadBookList}
+
+//wish List
+  
+  const getStoredWishList=()=>{
+    const storedWishBook=localStorage.getItem('wishBook');
+    if(storedWishBook){
+return JSON.parse(storedWishBook)
+    }
+    return [];
+  }
+
+  const saveWishBookList=id=>{
+    const storedWishBooks= getStoredWishList();
+    const exists=storedWishBooks.find(wishId=> wishId===id);
+    if(!exists){
+        storedWishBooks.push(id);
+        localStorage.setItem('wishBook', JSON.stringify(storedWishBooks))
+    }
+  }
+  export{getStoredReadList,saveReadBookList,getStoredWishList,saveWishBookList}
